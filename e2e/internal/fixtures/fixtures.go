@@ -33,7 +33,7 @@ func SetupConfigFile(t *testing.T) fs.Dir {
 				"auth": "ZWlhaXM6cGFzc3dvcmQK"
 			}
 		},
-		"experimental": "enabled"
+		"experimental": true
 	}
 	`))
 	return *dir

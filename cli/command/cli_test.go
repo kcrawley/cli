@@ -147,7 +147,7 @@ func TestExperimentalCLI(t *testing.T) {
 		{
 			doc: "experimental",
 			configfile: `{
-	"experimental": "enabled"
+	"experimental": true
 }`,
 			expectedExperimentalCLI: true,
 		},
@@ -184,7 +184,7 @@ func TestOrchestratorSwitch(t *testing.T) {
 		{
 			doc: "default",
 			configfile: `{
-				"experimental": "enabled"
+				"experimental": true
 			}`,
 			expectedOrchestrator: "swarm",
 			expectedKubernetes:   false,
@@ -192,7 +192,7 @@ func TestOrchestratorSwitch(t *testing.T) {
 		{
 			doc: "kubernetesIsExperimental",
 			configfile: `{
-				"experimental": "disabled",
+				"experimental": false,
 				"orchestrator": "kubernetes"
 			}`,
 			envOrchestrator:      "kubernetes",
@@ -203,7 +203,7 @@ func TestOrchestratorSwitch(t *testing.T) {
 		{
 			doc: "kubernetesConfigFile",
 			configfile: `{
-				"experimental": "enabled",
+				"experimental": true,
 				"orchestrator": "kubernetes"
 			}`,
 			expectedOrchestrator: "kubernetes",
@@ -212,7 +212,7 @@ func TestOrchestratorSwitch(t *testing.T) {
 		{
 			doc: "kubernetesEnv",
 			configfile: `{
-				"experimental": "enabled"
+				"experimental": true
 			}`,
 			envOrchestrator:      "kubernetes",
 			expectedOrchestrator: "kubernetes",
@@ -221,7 +221,7 @@ func TestOrchestratorSwitch(t *testing.T) {
 		{
 			doc: "kubernetesFlag",
 			configfile: `{
-				"experimental": "enabled"
+				"experimental": true
 			}`,
 			flagOrchestrator:     "kubernetes",
 			expectedOrchestrator: "kubernetes",
@@ -230,7 +230,7 @@ func TestOrchestratorSwitch(t *testing.T) {
 		{
 			doc: "envOverridesConfigFile",
 			configfile: `{
-				"experimental": "enabled",
+				"experimental": true,
 				"orchestrator": "kubernetes"
 			}`,
 			envOrchestrator:      "swarm",
@@ -240,7 +240,7 @@ func TestOrchestratorSwitch(t *testing.T) {
 		{
 			doc: "flagOverridesEnv",
 			configfile: `{
-				"experimental": "enabled"
+				"experimental": true
 			}`,
 			envOrchestrator:      "kubernetes",
 			flagOrchestrator:     "swarm",
